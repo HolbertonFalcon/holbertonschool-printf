@@ -1,1 +1,75 @@
-p
+What am I doing?
+Write a function that produces output according to a format.
+
+WHat are the requirements and restrictions?
+rototype: int _printf(const char *format, ...);
+Returns: the number of characters printed (excluding the null byte used to end output to strings)
+write output to stdout, the standard output stream
+format is a character string. The format string is composed of zero or more directives. See man 3 printf for more detail. You need to handle the following conversion specifiers:
+c
+s
+%
+You don’t have to reproduce the buffer handling of the C library printf function
+You don’t have to handle the flag characters
+You don’t have to handle field width
+You don’t have to handle precision
+You don’t have to handle the length modifiers
+
+and 
+
+You are not allowed to use global variables
+No more than 5 functions per file
+
+What are myresources?
+printf man 3 page (https://www.man7.org/linux/man-pages/man3/printf.3.html)
+
+C Video Tutorial (https://www.youtube.com/watch?v=6uIc4PtB9BM&list=PLwa5Mb0ZeviUfnVBzX7QRJCdzirqOPsXO&index=1)
+
+Stack Overflow
+C Proramming Forums
+
+What is the deadline?
+11/06/2023
+
+
+
+
+Pseudocode:
+
+Writing a function that creates an output based on a format. a string that states "The correct output is _______." "_______" replaced by output.
+Because there are muliple different ways of formatting, create an if, ifelse, etc statements to search individualy the characters and see if they corrspond with the correct 
+  formatand catalog as input or passes on the data baedon thonversion specifiers
+output must fit the stream so knowing which library that inclues this and addinding to the include statements.
+
+Function _printf(format, ...):
+    Initialize count to 0
+    Initialize a va_list called args
+    va_start(args, format)
+
+    For each character in the format string:
+        If character is '%':
+            Move to the next character
+            If the next character is 'c':
+                Get the character from args
+                Write the character to stdout
+                Increment count
+            Else if the next character is 's':
+                Get the string from args
+                For each character in the string:
+                    Write the character to stdout
+                    Increment count
+            Else if the next character is '%':
+                Write '%' to stdout
+                Increment count
+        Else:
+            Write the character to stdout
+            Increment count
+
+    End loop
+
+    va_end(args)  // Clean up
+
+    Return count
+End Function
+
+
