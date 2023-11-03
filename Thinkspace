@@ -21,6 +21,9 @@ You are not allowed to use global variables
 No more than 5 functions per file
 
 What are myresources?
+stdarg.h potential need
+https://www.tutorialspoint.com/c_standard_library/stdarg_h.htm
+
 printf man 3 page (https://www.man7.org/linux/man-pages/man3/printf.3.html)
 
 C Video Tutorial (https://www.youtube.com/watch?v=6uIc4PtB9BM&list=PLwa5Mb0ZeviUfnVBzX7QRJCdzirqOPsXO&index=1)
