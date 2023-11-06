@@ -1,0 +1,19 @@
+What am I doing?
+When is this project due?
+What are my requirements / restrictions?
+What are my resources?
+How do I apply this in real time?
+
+1. Write a function that produces output according to a format.
+Returns: the number of characters printed (excluding the null byte used to end output to strings)
+write output to stdout, the standard output stream
+format is a character string. The format string is composed of zero or more directives.
+handle the following conversion specifiers d and i.
+
+2. Project is due 12 am Nov 7 2023.
+
+3.Restrictions: switch statements, No global variables
+Requoired: 5 functions per file only, All your header files should be include guarded,The prototypes of all your functions should be included in your header file called main.h
+
+4. Secrets of “printf” Professor Don Colton, Brigham Young University Hawaii
+https://www.geeksforgeeks.org/how-to-write-your-own-printf-in-c/
