@@ -23,7 +23,7 @@ int print_string(char *str, int *char_print)
     int i;
 
     if (str == NULL) {
-        str = "(null)"; // Handle NULL strings by printing "(null)"
+        return 0; // Return 0 characters printed for NULL strings
     }
 
     for (i = 0; str[i] != '\0'; i++)
