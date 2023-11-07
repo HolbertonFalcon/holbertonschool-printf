@@ -103,7 +103,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == '%')
 			{
-    			print_string("(null)", &char_print);  
+    			print_string("%%!", &char_print);  
     			format++;  
 			}
 			else if (*format == 'c')
