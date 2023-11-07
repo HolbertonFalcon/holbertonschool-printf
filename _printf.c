@@ -1,7 +1,6 @@
 include "main.h"
-#include <stdarg.h> // Include the header for va_list and va_arg
-#include <stdio.h> // Include the header for sprintf
-
+#include <stdarg.h> 
+#include <stdio.h> 
 /**
 * print_char - Print a character and update character count.
 * @c: a character
