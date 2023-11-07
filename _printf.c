@@ -22,15 +22,16 @@ int print_string(char *str, int *char_print)
 {
     int i;
 
-    if (str == NULL)
+    if (str == NULL) {
         str = "(null)"; // Handle NULL strings by printing "(null)"
+    }
 
     for (i = 0; str[i] != '\0'; i++)
     {
-        _putchar(str[i]);
+        putchar(str[i]);
         (*char_print)++;
     }
-    return (i);
+    return i;
 }
 /**
 * print_integer - Print an integer and update character count.
