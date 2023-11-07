@@ -101,7 +101,7 @@ int _printf(const char *format, ...)
 			{
 				print_char('%', &char_print);
 			}
-			else
+			else if (*format != '%')
        	    {
             print_char(*format, &char_print);
         	}
