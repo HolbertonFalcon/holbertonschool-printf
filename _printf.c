@@ -29,7 +29,7 @@ int print_string(char *str, int *char_print)
         }
     } else {
        
-        /* _putchar('\0'); */
+        _putchar('\0');
     }
     return i;
 }
