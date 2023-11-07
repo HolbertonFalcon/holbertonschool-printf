@@ -29,8 +29,48 @@ int print_string(char *str, int *char_print)
 	}
 	return (i);
 }
+/**
+* print_integer - Print an integer and update character count.
+* @num: an integer pointer
+* @char_print: prints a character
+* Return: num
+*/
+int print_integer(int num, int *char_print)
+{
+		char num_str[12];
 
-#include "main.h"
+		sprintf(num_str, "%d", num);
+		return (print_string(num_str, char_print));
+}
+/**
+* print_binary - Prints an unsigned int into binary
+* @dig: unsigned int variable
+* @char_print: prints characters
+* Return: int
+*/
+int print_binary(unsigned int dig, int *char_print)
+{
+	char bin_str[33];
+	int index = 0;
+	int i;
+
+	if (dig == 0)
+		bin_str[index++] = '0';
+	else
+	{
+		while (dig > 0)
+		{
+			bin_str[index++] = (dig % 2) + '0';
+			dig /= 2;
+		}
+	}
+	for (i = index - 1; i >= 0; i--)
+	{
+		_putchar(bin_str[i]);
+		(*char_print)++;
+	}
+	return (index);
+}
 /**
 *  _printf - a funtion that produces output according to format
 * @format: a character string
@@ -38,7 +78,7 @@ int print_string(char *str, int *char_print)
 */
 int _printf(const char *format, ...)
 {
-	unsigned int char_print = 0;
+	int char_print = 0;
 	va_list arg;
 
 	if (format == NULL)
@@ -53,6 +93,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
+			while (*format == ' ')
+				format++;
 			if (*format == '\0')
 				return (-1);
 			if (*format == '%')
@@ -60,23 +102,26 @@ int _printf(const char *format, ...)
 				print_char('%', &char_print);
 			}
 			else if (*format == 'c')
-			{
-				char c = va_arg(arg, int);
+				print_char(va_arg(arg, int), &char_print);
 
-				print_char(c, &char_print);
-			}
-			else if (*format == 's')
-			{
-				char *str = va_arg(arg, char*);
+			 else if (*format == 's')
+            {
+                char *str = va_arg(arg, char*);
+                if (str == NULL)
+                {
+                    print_string("(null)", &char_print);
+                }
+                else
+                {
+                    print_string(str, &char_print);
+                }
+            }
 
-				print_string(str, &char_print);
-			}
 			else if (*format == 'd' || *format == 'i')
-			{
-				int n = va_arg(arg, int);
+				print_integer(va_arg(arg, int), &char_print);
 
-				print_char(n, &char_print);
-			}
+			else if (*format == 'b')
+				print_binary(va_arg(arg, unsigned int), &char_print);
 		}
 		format++;
 	}
