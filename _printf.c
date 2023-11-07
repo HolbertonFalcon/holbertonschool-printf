@@ -15,20 +15,19 @@ int print_char(char c, int *char_print)
 /**
 * print_string - Print a string and update character count.
 * @str: a string pointer
-* @char_print: pointer to character count
+* @char_print: prints a character
 * Return: i
 */
 int print_string(char *str, int *char_print)
 {
-    int i;
+	int i;
 
-    for (i = 0; str[i] != '\0'; i++) {
-        if (_putchar(str[i]) == -1) {
-            return -1; 
-        }
-        (*char_print)++;
-    }
-    return (i);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		_putchar(str[i]);
+		(*char_print)++;
+	}
+	return (i);
 }
 /**
 * print_integer - Print an integer and update character count.
@@ -105,8 +104,18 @@ int _printf(const char *format, ...)
 			else if (*format == 'c')
 				print_char(va_arg(arg, int), &char_print);
 
-			else if (*format == 's')
-				print_string(va_arg(arg, char*), &char_print);
+			 else if (*format == 's')
+            {
+                char *str = va_arg(arg, char*);
+                if (str == NULL)
+                {
+                    print_string("(null)", &char_print);
+                }
+                else
+                {
+                    print_string(str, &char_print);
+                }
+            }
 
 			else if (*format == 'd' || *format == 'i')
 				print_integer(va_arg(arg, int), &char_print);
