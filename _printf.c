@@ -86,10 +86,10 @@ int _printf(const char *format, ...)
 	va_start(arg, format);
 	while (*format)
 	{
-		if (*format != '%')
-		{
-			print_char(*format, &char_print);
-		}
+		if (*format == '%')
+			{
+				print_char('%', &char_print);
+			}
 		else
 		{
 			format++;
@@ -100,6 +100,7 @@ int _printf(const char *format, ...)
 			if (*format == '%')
 			{
 				print_char('%', &char_print);
+				print_char('!', &char_print);
 			}
 			else if (*format == '%')
 			{
