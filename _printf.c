@@ -101,6 +101,11 @@ int _printf(const char *format, ...)
 			{
 				print_char('%', &char_print);
 			}
+			else if (*format == '%')
+			{
+    			print_string("(null)", &char_print);  
+    			format++;  
+			}
 			else if (*format == 'c')
 				print_char(va_arg(arg, int), &char_print);
 
