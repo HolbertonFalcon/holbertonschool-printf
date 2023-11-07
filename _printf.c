@@ -13,11 +13,11 @@ int print_char(char c, int *char_print)
 }
 
 /**
-* print_string - Print a string and update character count.
-* @str: a string pointer
-* @char_print: prints a character
-* Return: i
-*/
+ * print_string - Print a string and update character count.
+ * @str: a string pointer
+ * @char_print: pointer to the character count
+ * Return: The number of characters printed.
+ */
 int print_string(char *str, int *char_print)
 {
     int i;
@@ -27,9 +27,6 @@ int print_string(char *str, int *char_print)
             _putchar(str[i]);
             (*char_print)++;
         }
-    } else {
-       
-        _putchar('\0');
     }
     return i;
 }
@@ -109,16 +106,9 @@ int _printf(const char *format, ...)
 				print_char(va_arg(arg, int), &char_print);
 
 			else if (*format == 's')
-            {
-                char *str = va_arg(arg, char*);
-                if (str == NULL) {
-                    /* If the string is NULL, adjust the character count but do not print anything */
-                    char_print += 6; /* 6 is the length of "(null)" */
-                } else {
-                    char_print += print_string(str, &char_print);
-                }
+				print_string(va_arg(arg, char*), &char_print);
 
-			}else if (*format == 'd' || *format == 'i')
+			else if (*format == 'd' || *format == 'i')
 				print_integer(va_arg(arg, int), &char_print);
 
 			else if (*format == 'b')
