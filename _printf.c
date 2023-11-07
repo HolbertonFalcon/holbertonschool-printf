@@ -104,18 +104,8 @@ int _printf(const char *format, ...)
 			else if (*format == 'c')
 				print_char(va_arg(arg, int), &char_print);
 
-			 else if (*format == 's')
-            {
-                char *str = va_arg(arg, char*);
-                if (str == NULL)
-                {
-                    print_string("(null)", &char_print);
-                }
-                else
-                {
-                    print_string(str, &char_print);
-                }
-            }
+			else if (*format == 's')
+				print_string(va_arg(arg, char*), &char_print);
 
 			else if (*format == 'd' || *format == 'i')
 				print_integer(va_arg(arg, int), &char_print);
