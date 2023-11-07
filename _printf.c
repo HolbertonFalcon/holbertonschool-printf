@@ -27,6 +27,9 @@ int print_string(char *str, int *char_print)
             _putchar(str[i]);
             (*char_print)++;
         }
+    } else {
+       
+        // _putchar('\0');
     }
     return i;
 }
