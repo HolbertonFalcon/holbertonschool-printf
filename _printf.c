@@ -22,14 +22,11 @@ int print_string(char *str, int *char_print)
 {
     int i;
 
-    if (str == NULL) {
-        return 0; // Return 0 characters printed for NULL strings
-    }
-
-    for (i = 0; str[i] != '\0'; i++)
-    {
-        putchar(str[i]);
-        (*char_print)++;
+    if (str != NULL) {
+        for (i = 0; str[i] != '\0'; i++) {
+            _putchar(str[i]);
+            (*char_print)++;
+        }
     }
     return i;
 }
