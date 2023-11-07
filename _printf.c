@@ -100,7 +100,7 @@ int _printf(const char *format, ...)
 			if (*format == '%')
             {
                 print_char('%', &char_print);
-                format++; r
+                format++;
             }
         }
         else
@@ -109,6 +109,8 @@ int _printf(const char *format, ...)
         }
         format++;
     }
+			else if (*format == 'c')
+				print_char(va_arg(arg, int), &char_print);
 
 			 else if (*format == 's')
             {
