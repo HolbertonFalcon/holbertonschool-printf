@@ -109,7 +109,14 @@ int _printf(const char *format, ...)
 				print_char(va_arg(arg, int), &char_print);
 
 			else if (*format == 's')
-				print_string(va_arg(arg, char*), &char_print);
+            {
+                char *str = va_arg(arg, char*);
+                if (str == NULL) {
+                    /* If the string is NULL, adjust the character count but do not print anything */
+                    char_print += 6; /* 6 is the length of "(null)" */
+                } else {
+                    char_print += print_string(str, &char_print);
+                }
 
 			else if (*format == 'd' || *format == 'i')
 				print_integer(va_arg(arg, int), &char_print);
