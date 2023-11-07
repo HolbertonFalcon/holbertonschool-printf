@@ -15,19 +15,20 @@ int print_char(char c, int *char_print)
 /**
 * print_string - Print a string and update character count.
 * @str: a string pointer
-* @char_print: prints a character
+* @char_print: pointer to character count
 * Return: i
 */
 int print_string(char *str, int *char_print)
 {
-	int i;
+    int i;
 
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		_putchar(str[i]);
-		(*char_print)++;
-	}
-	return (i);
+    for (i = 0; str[i] != '\0'; i++) {
+        if (_putchar(str[i]) == -1) {
+            return -1; 
+        }
+        (*char_print)++;
+    }
+    return (i);
 }
 /**
 * print_integer - Print an integer and update character count.
