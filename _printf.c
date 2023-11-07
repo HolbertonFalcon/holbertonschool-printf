@@ -13,22 +13,21 @@ int print_char(char c, int *char_print)
 }
 
 /**
- * print_string - Print a string and update character count.
- * @str: a string pointer
- * @char_print: pointer to the character count
- * Return: The number of characters printed.
- */
+* print_string - Print a string and update character count.
+* @str: a string pointer
+* @char_print: prints a character
+* Return: i
+*/
 int print_string(char *str, int *char_print)
 {
-    int i;
+	int i;
 
-    if (str != NULL) {
-        for (i = 0; str[i] != '\0'; i++) {
-            _putchar(str[i]);
-            (*char_print)++;
-        }
-    }
-    return i;
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		_putchar(str[i]);
+		(*char_print)++;
+	}
+	return (i);
 }
 /**
 * print_integer - Print an integer and update character count.
