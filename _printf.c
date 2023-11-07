@@ -118,7 +118,7 @@ int _printf(const char *format, ...)
                     char_print += print_string(str, &char_print);
                 }
 
-			else if (*format == 'd' || *format == 'i')
+			}else if (*format == 'd' || *format == 'i')
 				print_integer(va_arg(arg, int), &char_print);
 
 			else if (*format == 'b')
