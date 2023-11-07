@@ -98,17 +98,16 @@ int _printf(const char *format, ...)
 			if (*format == '\0')
 				return (-1);
 			if (*format == '%')
-            {
-                print_char('%', &char_print);
-                format++;
-            }
-        }
-        else
-        {
-            print_char(*format, &char_print);
-        }
-        format++;
-    }
+			{
+				print_char('%', &char_print);
+			}
+			else
+			{
+    
+    			print_char(*format, &char_print);
+
+    			format++; 
+			}
 			else if (*format == 'c')
 				print_char(va_arg(arg, int), &char_print);
 
